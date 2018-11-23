@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+/*############初始化列表############*/
+						table.info{
+     border-collapse:collapse;
+     }
+     
+     .box-model{  
+     width:200px;
+     height:250px;
+     display:block;
+     border-width:8px;
+     border-style:dotted solid double dashed;
+     border-color:#00aabb #aabbdd #ff00aa #00ffbb;
+     padding:10;
+     
+     }
+     
+     /*##########测试子元素选择器和相邻兄弟选择器的妙用#########*/
+						p{
+						font-family:arial,verdana,sans-serif;}
+						div.mix>p{
+						border:2px solid #000000;
+						}
+						/*#########  p+p+p 作用于任何第三个连续<p>元素的段落。想想选择器的原理从后面往前找，p要找到前面有两个p+p相邻的段落才会生效，这样就很好理解。#############*/
+						.mix p+p+p{
+						background-color:#999999;
+						}
+						
+						
+						
+						/*##############属性选择器#########*/
+				  div[class="info"]{
+				  background-color:#998899;
+				  }
+						
+						
+     
+     /*#############测试子元素选择器########*/
+     .base+p {
+     background-color:#f40;
+     }
+     
+     
+     
+     /*##############测试position定位的各个用法###############*/
+     .position-demo{
+     background-color:#228866;
+     position:relative;
+     }
+     
+     .p1{
+     background-color:#002299;
+     }
+     
+     
+     .position-demo
+     .p2{
+     background-color:#f40;
+     position:relative;
+     left:80px;
+     top:20px;
+     }
+     
+     .p3{
+     position:absolute;
+     background-color:#552266;
+     left:100px;
+     top:200px;
+     }
+     
+     .p4{
+     position:fixed;
+     background-color:#1166FF;
+     left:3px;
+     top:350px;
+     z-index:-1;
+     }
+     
+     
+     /*############测试浮动的实例#################*/
+     .float-demo{
+     background-color:#113344;
+     }
+     
+     .f1,
+     .clear-demo{
+     font-size:10px;
+     border-style:solid;
+     border-color:#000000;
+     border-width:2px;
+     padding:5px;
+     width:900px;
+     background-color:#ffffff;
+     }
+     /*浮动块设计*/
+     .inner-float{
+     float:right;
+     width:300px;
+     padding:5px;
+     margin:8px;
+     border-style:solid;
+     border-width:1px;
+     }
+     
+     .f2{
+     clear:right;
+     }
+     
+     .f3{
+     display:inline;
+     width:40%;
+     background-color:#158111;
+     }
+</style>
+<meta http-equiv="Content-Type" content="text/html"; charset="utf-8">  
+</head>
+<body>
+
+
+<h1>学习前端----Html和CSS篇章01</h1>
+<br>
+<!---hr为直线--->
+<hr>
+<br>
+
+<!-------自定义列表的实现--------->
+<dl>
+<!----list-style-image="http://www.icosky.com/icon/ico/Flag/Not%20a%20Patriot/China%20Flag.ico"---->
+    <dt><b>中国城市</b></dt>
+    <dd>北京 </dd>
+    <dd>上海 </dd>
+    <dd>广州 </dd>
+    <dt><b>美国城市</b></dt>
+    <dd>华盛顿 </dd>
+    <dd>芝加哥 </dd>
+    <dd>纽约 </dd>
+</dl>
+
+<!------注意表格的border不能省略---------->
+<table class="info" border="1">
+<tr>
+ <td>姓名</td>
+ <td>性别</td>
+</tr>
+
+<tr>
+ <td>姓名</td>
+ <td>性别</td>
+</tr>
+</table>
+
+<!----form表单用来进行数据传输---->
+<form action="deal.php" method="get">
+    userName : <input type="text" value="请输入用户"/>
+    <br>
+    PassWord :  <input type="password"/>
+    <br>
+    <input type="submit" value="提交至后台"/>
+    
+    <input type="button" value="重置数据"/>
+</form>
+
+<br>
+
+<!---css颜色的表实---->
+<div style="display:block;">
+        <div style="background-color:gray;">background-color:gray</div>
+        <div style="background-color:#F00;">background-color:#F00</div>
+        <div style="background-color:#ffff00;">background-color:#ffff00</div>
+        <div style="background-color:rgb(255,0,255);">background-color:rgb(255,0,255)</div>
+        <div style="background-color:hsl(120,80%,50%);">background-color:hsl(120,80%,50%)</div>
+        <div style="background-color:rgba(255,0,255,0.5);">background-color:rgba(255,0,255,0.5)</div>
+        <div style="background-color:hsla(120,80%,50%,0.5);">background-color:hsla(120,80%,50%,0.5)</div>
+</div>
+
+
+<br>
+<!----css盒子模型------>
+<div class="box-model"></div>
+
+<!--------测试 css 选择器------->
+<dl class="test-dl" id="dl2">
+<dt>测试的第一组数据:</dt>
+<dd>第一组第一个数据</dd>
+<dd>第一组第二个数据</dd>
+
+<dt>测试的第二个数据:</dt>
+<dd>第二组第一个数据</dd>
+</dl>
+
+
+<!-----测试子类选择器和后继选择器------------->
+<div class="info"><p>测试子类选择器和后继选择器，子类选择器作用于直接的子类元素，后继选择器作用于所有的子类，孙子类，重孙类元素</p></div>
+
+<br>
+<div class="base">
+<p>测试的直接子类元素01</p>
+<p>测试的直接子类元素02</p>
+<div class="t1">
+<p>测试的第二层元素02</p>
+<div class="t2">
+<p>测试的第三层元素03</p>
+</div>
+</div>
+</div>
+<p>外部的测试</p>
+
+
+<!------子类选择器和相邻兄弟选择器结合使用可以有效降低文档中class的数量--------->
+<p>子选择器和相邻兄弟选择器灵活使用</p>
+<div class="mix">
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+</div>
+
+<br><br><br>
+<p>下面演实定位position的应用</p>
+<div class="position-demo">
+<div class="p1">1 :普通静态流static</div>
+<div class="p2">2 :相对relative定位，相对应原本的普通流位置为基准进行移动</div>
+<div class="p3">3 :绝对定位absolute，完全脱离了普通流，相对于包含它的元素的位置为基准进行定位。但要记住:包含块的定位应该为relative或者fixed定位才行，否则就会把浏览器当做包含块。</div>
+<div class="p4">4 :固定定位fixed,相对于浏览器的左上角为基准进行定位。</div>
+</div>
+
+
+<!----#########浮动float的实际##########------->
+<br><br>
+<p>测试浮动的实例</p>
+
+<div class="float-demo">
+<p class="f1"><span class="inner-float">这里将进行的是环绕效果的实例这里将进行的是环绕效果的实例这里将进行的是环绕效果的示例这里将进行的是环绕效果的示例</span>
+1 :第一个div内部包含的span将作为一个环绕块，做出文字环绕的效果展示。测试下第一个div内部包含的span将作为一个环绕块，做出文字环绕的效果展示。测试下第一个div内部包含的span将作为一个环绕块，做出文字环绕的效果展示。测试下第一个div内部包含的span将作为一个环绕块，做出文字环绕的效果展示。测试下第一个div内部包含的span将作为一个环绕块，做出文字环绕的效果展示。测试下
+</p>
+
+<p>对比上面，下面将使用清除clear特性</p>
+<div class="clear-demo">
+<span class="inner-float">这里将进行的是环绕效果的实例这里将进行的是环绕效果的实例这里将进行的是环绕效果的示例这里将进行的是环绕效果的示例</span><p class="f2">
+1 :第一个div内部包含的span将作为一个环绕块，做出文字环绕的效果展示。测试下第一个div内部包含的span将作为一个环绕块，做出文字环绕的效果展示。测试下第一个div内部包含的span将作为一个环绕块，做出文字环绕的效果展示。测试下第一个div内部包含的span将作为一个环绕块，做出文字环绕的效果展示。测试下第一个div内部包含的span将作为一个环绕块，做出文字环绕的效果展示。测试下
+</p></div>
+<div class="f3">3</div>
+</div>
+</body>
+</html>
