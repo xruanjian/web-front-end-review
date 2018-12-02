@@ -45,6 +45,47 @@
      }
      
      
+     /*实际中遇到的列表样式*/
+      #dv1{
+     				border:2px solid #cccccc;
+     				width:170px;
+     				position:relative;
+     }
+      
+     #dv1 p{
+     				width:100%;
+     				height:10px;
+     				background-color:#dfdfdf;
+     				margin-bottom:0;
+     				padding-bottom:0;
+     }
+     
+     #dv1 h3{
+     				margin:0;
+     				padding:5px 0 0 10px;
+     				width:160px;
+     				height:30px;
+     				background-color:#3B5998;
+     				color:#ffffff;
+     }
+     
+     #down{
+     				width:25px;
+     				height:28px;
+     				margin-top:-9px;
+     				margin-right:-8px;
+     				position:absolute;
+     				right:10px;
+     				top:12px;
+     				cursor:pointer;
+     				background:url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1543738964530&di=752a665ddb9e1d54838262b09a62e96c&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F00%2F86%2F24%2F5856eae16d22f01.jpg") no-repeat;
+     				background-size:100% 100%;
+     }
+     
+     #ul1 ul{
+     				margin-left:-20px;
+     }
+     
      
      /*##############测试position定位的各个用法###############*/
      .position-demo{
@@ -220,6 +261,44 @@
 <p>5</p>
 </div>
 
+<!-------------列表的实际应用样式举例---------------->
+<br><br><br>
+<p>实际应用中的列表应用</p>
+<div id="dv1">
+			<h3>产品分类</h3>
+			<b id="down"></b>
+			<ul id="ul1">
+						<li><span>衬衫</span>
+										<ul>
+															<li><span>短袖衬衫</span></li>
+															<li><span>长袖衬衫</span></li>
+										</ul>
+						</li>
+						
+						<li><span>卫衣</span>
+											<ul>
+															<li><span>开襟卫衣</span></li>
+															<li><span>套头卫衣</span></li>
+											</ul>
+						</li>
+						
+						<li><span>裤子</span>
+											<ul> 
+															<li><span>休闲裤</span></li>
+															<li><span>免烫卡其裤</span></li>
+															<li><span>牛仔裤</span></li>
+															<li><span>短裤</span></li>
+											</ul>
+						</li>
+			</ul>
+			<p></p>
+</div>
+
+
+
+
+
+
 <br><br><br>
 <p>下面演实定位position的应用</p>
 <div class="position-demo">
@@ -235,7 +314,7 @@
 <p>测试浮动的实例</p>
 
 <div class="float-demo">
-<p class="f1"><span class="inner-float">这里将进行的是环绕效果的实例这里将进行的是环绕效果的实例这里将进行的是环绕效果的示例这里将进行的是环绕效果的示例</span>
+<p class="f1"><span class="inner-float">这里将进行的是环绕效果的实例这里将进行的是环绕效果的实例这里将进行的是环绕效果的<示>例这里将进行的是环绕效果的示例</span>
 1 :第一个div内部包含的span将作为一个环绕块，做出文字环绕的效果展示。测试下第一个div内部包含的span将作为一个环绕块，做出文字环绕的效果展示。测试下第一个div内部包含的span将作为一个环绕块，做出文字环绕的效果展示。测试下第一个div内部包含的span将作为一个环绕块，做出文字环绕的效果展示。测试下第一个div内部包含的span将作为一个环绕块，做出文字环绕的效果展示。测试下
 </p>
 
