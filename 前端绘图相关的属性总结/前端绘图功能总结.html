@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
+</head>
+
+<style>
+   /*控制位图裁剪图片*/
+.clip-image{
+     position:absolute;
+     clip:rect(150px auto auto 50px);
+     overflow:hidden;
+}
+</style>
+<body>
+
+<p>#########H5新增的Canvas功能实例##############</p>
+<p>1 :功能一绘制几何图形</p>
+
+<canvas id="mc" width="800" height="350"
+	style="border:1px solid black"></canvas>
+
+
+<hr><br>
+<p>######使用位图裁剪功能###########</p>
+<div class="clip-demo">
+    <img class="clip-image" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544180606230&di=70228a08fa2aac7ec0ec54c07ed9ff6b&imgtype=0&src=http%3A%2F%2Fpic19.nipic.com%2F20120308%2F4970979_102637717125_2.jpg">
+</div>
+
+<script src="script/canvasPaint.js" type="text/javascript"></script>
+</body>
+</html>
