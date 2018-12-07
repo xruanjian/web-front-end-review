@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
+<style>
+/*########伪类选择器:root相当于html########*/
+:root{
+				background:#ddd;
+}
+span{
+ display:block;
+}
+.sp1:first-letter{
+			color:#f00;
+			font-size:20px;
+}
+
+section:first-line{
+				color:#f40;
+				font-size:30pt;
+}
+
+.before-after-test:before{
+				content:"这是before属性添加的内容";
+				color:#0fa;
+				font-size:18pt;
+}
+
+.before-after-test:after{
+content:url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1543912641999&di=063d0f0b86407d36236e3a08492fbe6e&imgtype=0&src=http%3A%2F%2Ffiles.17173.com%2Fforum%2Ffz_tele-05%2Fimages%2F2014%2F05%2F12%2F183925hnxixwgigtsweatp.gif");
+}
+
+
+.list-dv li{
+						list-style:none;			
+}
+
+.list-dv ul{
+				 margin-left:8px;
+}
+.list-dv li:before{
+						content:url("http://images.china.cn/images1/ch/2014world/images/b_5.gif");
+}
+
+/*###########quotes################*/
+.quote-test{
+/*####用quotes定义两个引用变量######*/
+       quotes:"#" "@";
+}
+
+.quote-test:before{
+							 content:open-quote;
+}
+.quote-test:after{
+								 content:close-quote;
+}
+
+
+/*#############使用计数器为元素添加标号###############*/
+/*一定要选定同一元素，才可以对此元素生效*/
+.fake-list>span{
+				 counter-increment:n;
+}
+.fake-list>span:before{
+				 content:counter(n,upper-latin) ": ";
+				 font-weight:bold;
+				 font-size:16pt;		 
+}
+
+/*#############计数器实现多级编号###############*/
+.multi-list h4{
+      counter-increment:category-counter;
+}
+.multi-list span{
+      margin-left:35px;
+      counter-increment:sub-counter;
+}
+.multi-list h4:before{
+      content:counter(category-counter,upper-latin) ":";     
+      font-weight:bold;
+      font-size:12pt;
+}
+.multi-list span:before{
+      content:" " counter(sub-counter,lower-greek);
+}
+
+
+/*#############伪类选择器###############*/
+/*###会选中它的父元素的第一个子元素####*/
+.multi-list h4:first-child{
+								border:1px dotted black;
+}
+
+.multi-list span:first-of-type{
+	     border:2px solid red;
+}
+
+.multi-list span:nth-of-type(5){
+      border:2px dotted green;
+}
+
+/*########UI伪类选择器##########*/
+.ui-selector table,tr,td{
+      border:2px solid black;
+}
+.ui-selector a:link{
+      color:green;
+}
+.ui-selector a:visited{
+      color:red;
+}
+
+</style>
+
+
+
+</head>
+<body>
+<div>
+<span class="sp1">奕辰的玩具真是多！！使用伪元素选择器，必须是块级元素才可以。这里需要把包含此段文字的非块级容器span转换为块级元素</span>
+</div>
+<hr>
+<br><br>
+<section>
+YiChen今年两岁半了，他很可爱，很有前途！<br>
+YiChen长大很有出息。<br>
+这里的第一行文字会被选中
+</section>
+
+<hr><br><br>
+<p>############测试before和after#################<p>
+<div>
+<span class="before-after-test">
+YiChen科技是一家很赚钱的公司。
+</span>
+</div>
+
+<hr>
+<p>############像部分元素添加before或者after属性#################</p>
+
+<div class="list-dv">
+			<ul>玩具
+							<li>奕辰的玩具飞机</li>
+							<li>奕辰的玩具汽车</li>
+			</ul>
+</div>
+<hr><br>
+<span class="quote-test">
+      测试quote属性的使用会在这段之前和之后家个#号和@符号。
+</span>
+
+<hr><br>
+<p>########利用多个计数器实现给元素
+编号#######</p>
+
+<div class="fake-list">
+    <span>奕辰爱吃香蕉！</span>
+    <span>奕辰爱吃橘子！</span>
+    <span>奕辰爱吃草莓！</span>
+</div>
+
+<hr><br>
+<p>########利用多个计数器实现多级
+编号#######</p>
+<div class="multi-list">
+     <h4>奕辰的玩具车</h4>
+     <span>带电池的玩具火车</span>
+     <span>带电池的玩具小汽车</span>
+     <span>可以充电的山地车</span>
+     <span>拧发条的长颈鹿车</span>
+     <span>拧发条的章鱼汽车</span>
+     <h4>奕辰的飞机</h4>
+     <span>带电池的玩具飞机</span>
+     <span>带电池的玩具鹰</span>    
+</div>
+<hr><br>
+<p><h4>UI伪类选择器</h4></p>
+<div class="ui-selector">
+     <table style="width:800px;border-collapse:collapse;">
+      <tr>
+         <td><a href="http://www.doorofhealth.com">测试一下链接的样式</a>
+         </td>
+         <td><input type="button" id="change-background" value="点击此按钮改变页面背景色"/></td>
+      </tr>
+      <tr>
+         <td><button disabled>放个实现的按钮</button></td>
+         <td><input type="text" disabled value="不可以使用的文本框"/></td>
+      </tr>
+     </table>
+</div>
+
+<hr><br><br>
+
+
+<script src="script/changeBg.js" type="text/javascript"></script>
+
+
+</body>
+</html>
